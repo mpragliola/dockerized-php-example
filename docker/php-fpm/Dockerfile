@@ -2,8 +2,9 @@
 FROM php:7.2-fpm-alpine AS builder
 
 # Install generally needed PHP extensions here, with dependenceis first
-RUN apk add --no-cache libxml2-dev icu-dev
-RUN docker-php-ext-install bcmath mbstring intl opcache pdo pdo_mysql zip
+RUN apk add --no-cache --virtual .php-build-deps libxml2-dev icu-dev \
+    && docker-php-ext-install bcmath mbstring intl opcache pdo pdo_mysql zip \
+    && apk del --no-cache --purge .php-build-deps
 
 # ---------------------------------------------------------------------------
 FROM php:7.2-fpm-alpine AS base
