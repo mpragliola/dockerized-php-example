@@ -1,0 +1,12 @@
+{
+    "name": "marco-pragliola/dockerized-php",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Marco Pragliola",
+            "email": "marcopragliola@gmail.com"
+        }
+    ],
+    "require": {}
+}

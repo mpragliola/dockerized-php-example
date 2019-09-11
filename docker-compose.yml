@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+  php-fpm:
+    build:
+      dockerfile: ./docker/php-fpm/Dockerfile
+      context: .
+      target: ${PHP_FPM_LOCAL_TARGET_BUILD}
+
+  nginx:
+    build:
+      dockerfile: ./docker/nginx/Dockerfile
+      context: .
+    ports:
+      - "${NGINX_LOCAL_PORT}:80"
